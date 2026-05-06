@@ -7,3 +7,5 @@ def filter_by_state(list_: list, key: str = 'EXECUTED') -> list:
             continue
     return filtered_list
 
+def sort_by_date(list_: list, route:bool = True) -> list:
+    return sorted(list_, key=lambda x: x.get('date'), reverse=route)

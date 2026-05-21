@@ -6,22 +6,31 @@ from src import masks
 def mask_account_card(number: str) -> str:
     """Функция, которая маскирует карту или номер счета"""
     mask_number = ""
-    first_int_index = 0
-
-    for item in number:
+    first_int_index = None
+    clean_number = number.replace(' ', '')
+    for item in clean_number:
         if item.isdigit():
-            first_int_index = number.index(item)
+            first_int_index = clean_number.index(item)
             break
-    if len(number[first_int_index:]) == 16:
-        mask_number += number[:first_int_index] + masks.get_mask_card_number(number[first_int_index:])
-    elif len(number[first_int_index:]) == 20:
-        mask_number += number[:first_int_index] + masks.get_mask_account(number[first_int_index:])
+
+    if len(clean_number[first_int_index:]) == 16:
+        mask_number += clean_number[:first_int_index] + ' ' + masks.get_mask_card_number(clean_number[first_int_index:])
+
+    elif len(clean_number[first_int_index:]) == 20:
+        mask_number += clean_number[:first_int_index] + ' ' + masks.get_mask_account(clean_number[first_int_index:])
+
     else:
-        return "Неверно введен номер"
+        raise ValueError('Некорректный номер')
 
     return mask_number
 
 
 def get_date(now_date: str) -> str:
     """Функция, которая меняет формат времени по шаблону: дд.мм.гггг"""
-    return datetime.strptime(now_date, "%Y-%m-%dT%H:%M:%S.%f").strftime("%d.%m.%Y")
+    try:
+        return datetime.strptime(now_date, "%Y-%m-%dT%H:%M:%S.%f").strftime("%d.%m.%Y")
+    except ValueError:
+        raise ValueError('Некорректный формат даты, ожидается ISO формат')
+
+
+# print(get_date('2024-03-11T2'))

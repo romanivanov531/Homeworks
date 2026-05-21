@@ -15,6 +15,8 @@ def get_mask_card_number(card_number: str) -> str:
 def get_mask_account(account: str) -> str:
     """Функция, которая маскирует номер счёта
     в формате **XXXX"""
+    if not isinstance(account, str):
+        raise TypeError('Неверный тип данных')
 
     if len(account) > 20 or len(account) < 20:
         raise ValueError('Неверно введен номер')

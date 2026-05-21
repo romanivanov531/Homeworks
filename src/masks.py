@@ -1,6 +1,13 @@
 def get_mask_card_number(card_number: str) -> str:
     """Функция, которая маскирует номер карты
     в формате XXXX XX** **** XXXX"""
+
+    if len(card_number) > 16 or len(card_number) < 16:
+        raise ValueError('Неверно введен номер')
+
+    if not card_number.isdigit():
+        raise ValueError('Неверно введен номер')
+
     mask_card_number = card_number[:4] + " " + card_number[4:6] + "** **** " + card_number[-4:]
     return mask_card_number
 

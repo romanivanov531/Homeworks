@@ -40,7 +40,3 @@ def test_get_date_wrong_format():
 def test_get_date_empty():
     with pytest.raises(ValueError):
         get_date('')
-
-
-
-

@@ -35,6 +35,3 @@ def get_date(now_date: str) -> str:
         return datetime.strptime(now_date, "%Y-%m-%dT%H:%M:%S.%f").strftime("%d.%m.%Y")
     except ValueError:
         raise ValueError('Некорректный формат даты, ожидается ISO формат')
-
-
-print(mask_account_card(123))

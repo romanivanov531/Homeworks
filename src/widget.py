@@ -7,6 +7,10 @@ def mask_account_card(number: str) -> str:
     """Функция, которая маскирует карту или номер счета"""
     mask_number = ""
     first_int_index = None
+
+    if not isinstance(number, str):
+        raise TypeError('Неверный тип данных')
+
     clean_number = number.replace(' ', '')
     for item in clean_number:
         if item.isdigit():
@@ -33,4 +37,4 @@ def get_date(now_date: str) -> str:
         raise ValueError('Некорректный формат даты, ожидается ISO формат')
 
 
-# print(get_date('2024-03-11T2'))
+print(mask_account_card(123))

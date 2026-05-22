@@ -23,6 +23,11 @@ def test_mask_account_wrong_number(number, expected):
     assert str(exc_info.value) == expected
 
 
+def test_mask_account_card_wrong_type():
+    with pytest.raises(TypeError):
+        mask_account_card(123)
+
+
 @pytest.fixture
 def date():
     return '2024-03-11T02:26:18.671407'

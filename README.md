@@ -5,6 +5,7 @@
   1. src/masks.py - модуль, для хранения функций по маскировке счетов и карт
   2. src/widget.py - модуль, осуществляющий маскировку счетов или карт
   3. src/processing.py - модуль для сортировки операций
+  4. tests/test_masks.py | test_widget.py | test_processing.py
 ## Установка
   1. Скопируйте репозиторий
      ```
@@ -26,3 +27,31 @@
   ```
   python3 src/widget.py Visa Platinum 7000792289606361
   ```
+## Тестирование Pytest
+  1. Установите Pytest и плагин pytest-cov
+     ```
+     poetry add --group dev pytest
+     poetry add --group dev pytest-cov
+     ```
+     Или
+     ```
+     pip install pytest
+     pip install pytest-cov
+     ```
+  2. Запустите Pytest
+     * Для отдельных модулей
+     ```
+     pytest tests/test_module.py
+     ```
+     * Общая проверка всех модулей
+     ```
+     pytest
+     ```
+  3. Проверьте покрытие тестами и сохраните результат
+     ```
+     pytest --cov
+     ```
+     ```
+     pytest --cov=src --cov-report=html
+     ```
+     

@@ -1,6 +1,3 @@
-from email.generator import Generator
-
-
 def filter_by_currency(my_list: list[dict], key: str = 'USD'):
     '''Функция принимает список транзакций в виде словарей и фильтрует по валюте.
     По умолчанию валюта USD.

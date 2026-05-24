@@ -28,12 +28,15 @@ def test_transaction_descriptions_empty_input():
     assert list(transaction_descriptions([])) == []
 
 
-def test_card_numbers_generator():
-    assert list(card_number_generator(1, 5)) == ['0000 0000 0000 0001',
+@pytest.mark.parametrize('start, stop, expected', [
+    (1, 5, ['0000 0000 0000 0001',
                                                            '0000 0000 0000 0002',
                                                            '0000 0000 0000 0003',
                                                            '0000 0000 0000 0004',
-                                                           '0000 0000 0000 0005']
+                                                           '0000 0000 0000 0005'])
+])
+def test_card_numbers_generator(start, stop, expected):
+    assert list(card_number_generator(start, stop)) == expected
 
 
 def test_card_numbers_generator_value_input():

@@ -5,7 +5,7 @@
   1. src/masks.py - модуль, для хранения функций по маскировке счетов и карт
   2. src/widget.py - модуль, осуществляющий маскировку счетов или карт
   3. src/processing.py - модуль для сортировки операций
-  4. tests/test_masks.py | test_widget.py | test_processing.py
+  4. tests/test_masks.py | test_widget.py | test_processing.py | test_generators.py
 ## Установка
   1. Скопируйте репозиторий
      ```
@@ -54,4 +54,5 @@
      ```
      pytest --cov=src --cov-report=html
      ```
+     * Отчет покрытия тестами в директории tests_log/index.html
      

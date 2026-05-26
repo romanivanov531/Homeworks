@@ -4,6 +4,10 @@ from typing import Any, Callable
 
 
 def log(filename: str) -> Callable:
+    ''' Декоратор для логирования деталей выполнения функций.
+    Записывает данные: Имя функции, время выполнения, результат, исключения.
+    При наличии аргумента записывает данные в файл filename.
+    При отсутствии аргумента выводит данные в консоль.'''
     def wrapper(func: Callable) -> Any:
         @wraps(func)
         def inner(*args: Any, **kwargs: Any) -> Any:

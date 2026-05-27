@@ -5,36 +5,30 @@ from typing import Any, Callable
 
 def log(filename: str) -> Callable:
     ''' Декоратор для логирования деталей выполнения функций.
-    Записывает данные: Имя функции, время выполнения, результат, исключения.
-    При наличии аргумента записывает данные в файл filename.
-    При отсутствии аргумента выводит данные в консоль.'''
+        Записывает данные: Имя функции, время выполнения, результат, исключения.
+        При наличии аргумента записывает данные в файл filename.
+        При отсутствии аргумента выводит данные в консоль.'''
     def wrapper(func: Callable) -> Any:
         @wraps(func)
         def inner(*args: Any, **kwargs: Any) -> Any:
-            if filename:
-                try:
-                    now = datetime.now()
-                    start = now.strftime('%d/%m/%Y %H:%M:%S')
-                    result = func(*args, **kwargs)
-                    with open(f'{filename}', 'a', encoding='utf-8') as file:
-                        file.write(f'Time:{start}  {func.__name__}   Result:{result}\n')
-                except Exception as e:
-                    now = datetime.now()
-                    start = now.strftime('%d/%m/%Y %H:%M:%S')
-                    with open(f'{filename}', 'a', encoding='utf-8') as file:
-                        file.write(f'Time:{start}  {func.__name__}  Error:{e}  Input: {args}, {kwargs}\n')
-                    raise ValueError(str(e))
-                return result
-            else:
-                try:
-                    result = func(*args, **kwargs)
-                    now = datetime.now()
-                    start = now.strftime('%d/%m/%Y %H:%M:%S')
-                    print(f'Time:{start}  {func.__name__}  Result:{result}')
-                except Exception as e:
-                    now = datetime.now()
-                    start = now.strftime('%d/%m/%Y %H:%M:%S')
-                    print(f'Time:{start}  {func.__name__}  Error:{e}  Input: {args}, {kwargs}')
-                    raise ValueError(str(e))
+            start = datetime.strftime(datetime.now(), '%d/%m/%y %H:%M:%S')
+            try:
+                result = func(*args, **kwargs)
+                if filename:
+                    with open(f'{filename}.txt', 'a', encoding='utf-8') as file:
+                        file.write(f'Start:{start}  {func.__name__}  result:{result}\n')
+
+                else:
+                    print(f'Start:{start}  {func.__name__}  result:{result}')
+
+            except Exception as e:
+                if filename:
+                    with open(f'{filename}.txt', 'a', encoding='utf-8') as file:
+                        file.write(f'Start:{start}  {func.__name__}  Error:{e}  input:{args}  {kwargs}\n')
+                else:
+                    print(f'Start:{start}  {func.__name__}  Error:{e}  input:{args}  {kwargs}\n')
+                raise ValueError('ff')
+
+            return result
         return inner
     return wrapper

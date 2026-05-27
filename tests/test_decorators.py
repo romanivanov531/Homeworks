@@ -11,15 +11,13 @@ def test_log(capsys):
     my_function(1, 2)
     captured = capsys.readouterr()
     now = datetime.now()
-    start = now.strftime('%d/%m/%Y %H:%M:%S')
-    assert captured.out == f'Time:{start}  my_function  Result:3\n'
+    start = now.strftime('%d/%m/%y %H:%M:%S')
+    assert captured.out == f'Start:{start}  my_function  result:3\n'
 
 
-def test_log_error_in_func_args(capsys):
-    @log(filename='log.txt')
-    def error_function(a, b):
-        return a + b
+def test_log_error_empty_dec():
     with pytest.raises(ValueError):
-        error_function('', 3)
-        captured = capsys.readouterr()
-        assert captured.out == 'can only concatenate str (not "int") to str'
+        @log('')
+        def error_func(a, b):
+            return a + b
+        error_func('', 2)

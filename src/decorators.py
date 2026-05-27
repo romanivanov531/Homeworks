@@ -22,8 +22,8 @@ def log(filename: str) -> Callable:
                     now = datetime.now()
                     start = now.strftime('%d/%m/%Y %H:%M:%S')
                     with open(f'{filename}', 'a', encoding='utf-8') as file:
-                        file.write(f'Time:{start}  {func.__name__}  Error:{e}  Input: {args}\n')
-                    raise ValueError(e)
+                        file.write(f'Time:{start}  {func.__name__}  Error:{e}  Input: {args}, {kwargs}\n')
+                    raise ValueError(str(e))
                 return result
             else:
                 try:
@@ -34,7 +34,7 @@ def log(filename: str) -> Callable:
                 except Exception as e:
                     now = datetime.now()
                     start = now.strftime('%d/%m/%Y %H:%M:%S')
-                    print(f'Time:{start}  {func.__name__}  Error:{e}  Input: {args}')
-                    raise ValueError(e)
+                    print(f'Time:{start}  {func.__name__}  Error:{e}  Input: {args}, {kwargs}')
+                    raise ValueError(str(e))
         return inner
     return wrapper

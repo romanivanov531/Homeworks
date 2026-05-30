@@ -5,7 +5,9 @@
   1. src/masks.py - модуль, для хранения функций по маскировке счетов и карт
   2. src/widget.py - модуль, осуществляющий маскировку счетов или карт
   3. src/processing.py - модуль для сортировки операций
-  4. tests/test_masks.py | test_widget.py | test_processing.py | test_generators.py
+  4. scr/decorators.py - модуль для хранения декораторов
+  5. tests/test_masks.py | test_widget.py | test_processing.py | test_generators.py 
+     test_decorators.py
 ## Установка
   1. Скопируйте репозиторий
      ```

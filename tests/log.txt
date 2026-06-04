@@ -1,0 +1,5 @@
+Time:27/05/2026 19:51:33  error_function  Error:test_log_error_in_func_args1.<locals>.error_function() missing 2 required positional arguments: 'a' and 'b'  Input: (), {}
+Time:27/05/2026 19:51:55  error_function  Error:something went wrong  Input: (), {}
+Time:27/05/2026 19:53:27  error_function  Error:can only concatenate str (not "int") to str  Input: ('', 3), {}
+Time:27/05/2026 19:53:27  error_function  Error:Wrong argument type  Input: (), {}
+Time:27/05/2026 19:53:55  error_function  Error:Wrong argument type  Input: (), {}

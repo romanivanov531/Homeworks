@@ -10,3 +10,5 @@ def take_operations_info(directory: str) -> list:
         return list(operations_info)
     except Exception:
         return []
+
+print(take_operations_info('operations.json'))

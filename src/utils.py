@@ -3,6 +3,7 @@ import os
 
 
 def take_operations_info(directory: str) -> list:
+    '''Функция для чтения JSON файлов'''
     try:
         with open(f'/home/roman/PycharmProjects/Homeworks/data/{directory}', 'r') as file:
             operations_info = json.load(file)

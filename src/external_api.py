@@ -8,6 +8,8 @@ API_KEY = os.getenv("API_KEY_EXCHANGE_RATES")
 
 
 def operation_amount(operation: dict) -> float:
+    '''Функция для поиска суммы транзакций.
+    Если валюта отличается от РУБ, проводит конвертацию с помощью внешнего API '''
     currency = operation['operationAmount']['currency']['code']
     amount = operation['operationAmount']['amount']
 

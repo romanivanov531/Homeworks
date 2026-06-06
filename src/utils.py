@@ -1,14 +1,12 @@
 import json
-import os
 
 
 def take_operations_info(directory: str) -> list:
     '''Функция для чтения JSON файлов'''
     try:
-        with open(f'/home/roman/PycharmProjects/Homeworks/data/{directory}', 'r') as file:
+        with open(f'{directory}', 'r') as file:
             operations_info = json.load(file)
         return list(operations_info)
-    except Exception:
+    except Exception as e:
+        print(e)
         return []
-
-print(take_operations_info('operations.json'))

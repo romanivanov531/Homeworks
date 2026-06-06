@@ -1,6 +1,6 @@
 import pytest
 
-from src.masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
 @pytest.mark.parametrize('card_number, expected', [
@@ -37,8 +37,6 @@ def test_get_mask_card_number_not_digit():
     ('35383033474447895560', '**5560'),
     ('64686473678894779589', '**9589')
 ])
-
-
 def test_get_mask_account(acc_number, expected):
     assert get_mask_account(acc_number) == expected
 

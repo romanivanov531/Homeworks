@@ -1,4 +1,4 @@
-from typing import Generator, Any, Dict, List
+from typing import Any, Dict, Generator, List
 
 
 def filter_by_currency(my_list: List[Dict[str, Any]], key: str = 'USD') -> Generator[Dict[str, Any]]:

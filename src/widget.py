@@ -6,7 +6,7 @@ from src import masks
 def mask_account_card(number: str) -> str:
     """Функция, которая маскирует карту или номер счета"""
     mask_number = ""
-    first_int_index = None
+    first_index = None
 
     if not isinstance(number, str):
         raise TypeError('Неверный тип данных')
@@ -14,14 +14,14 @@ def mask_account_card(number: str) -> str:
     clean_number = number.replace(' ', '')
     for item in clean_number:
         if item.isdigit():
-            first_int_index = clean_number.index(item)
+            first_index = clean_number.index(item)
             break
 
-    if len(clean_number[first_int_index:]) == 16:
-        mask_number += clean_number[:first_int_index] + ' ' + masks.get_mask_card_number(clean_number[first_int_index:])
+    if len(clean_number[first_index:]) == 16:
+        mask_number += clean_number[:first_index] + ' ' + masks.get_mask_card_number(clean_number[first_index:])
 
-    elif len(clean_number[first_int_index:]) == 20:
-        mask_number += clean_number[:first_int_index] + ' ' + masks.get_mask_account(clean_number[first_int_index:])
+    elif len(clean_number[first_index:]) == 20:
+        mask_number += clean_number[:first_index] + ' ' + masks.get_mask_account(clean_number[first_index:])
 
     else:
         raise ValueError('Некорректный номер')

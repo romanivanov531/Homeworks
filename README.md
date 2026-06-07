@@ -6,8 +6,10 @@
   2. src/widget.py - модуль, осуществляющий маскировку счетов или карт
   3. src/processing.py - модуль для сортировки операций
   4. scr/decorators.py - модуль для хранения декораторов
-  5. tests/test_masks.py | test_widget.py | test_processing.py | test_generators.py 
-     test_decorators.py
+  5. src/utils.py - модуль для чтения файлов json 
+  6. src/external_api.py - модуль для конвертации валюты операций
+  7. tests/test_....py - модули для тестирования 
+  8. data/operations.json
 ## Установка
   1. Скопируйте репозиторий
      ```

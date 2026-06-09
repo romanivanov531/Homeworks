@@ -1,7 +1,10 @@
 import logging
 import os
 
-path = '/home/roman/PycharmProjects/Homeworks/logs/'
+if not os.path.isdir('../logs'):
+    os.mkdir('../logs')
+
+path = '../logs/'
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
                     datefmt='%Y-%m-%d %H:%M:%S',
@@ -49,7 +52,7 @@ def get_mask_account(account: str) -> str:
 
     logger.info('Проверка длины номера - 20')
     if len(account) > 20 or len(account) < 20:
-        logger.error('Неверная длина номера')
+        logger.error(f'Неверная длина номера: {len(account)} != 20')
         raise ValueError('Неверно введен номер')
 
     logger.info('Проверка: все знаки являются цифрами')

@@ -2,13 +2,17 @@ import json
 import logging
 import os
 
-path = '/home/roman/PycharmProjects/Homeworks/logs/'
+if not os.path.isdir('../logs'):
+    os.mkdir('../logs')
+
+path = '../logs'
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.DEBUG,
                     datefmt='%Y-%m-%d %H:%M:%S',
                     format='[%(asctime)s] %(module)10s:%(lineno)d %(levelname)7s - %(message)s',
                     filemode='a',
                     filename=os.path.join(path, 'utils.log'))
+
 
 def take_operations_info(directory: str) -> list:
     '''Функция для чтения JSON файлов'''

@@ -8,8 +8,9 @@
   4. scr/decorators.py - модуль для хранения декораторов
   5. src/utils.py - модуль для чтения файлов json 
   6. src/external_api.py - модуль для конвертации валюты операций
-  7. tests/test_....py - модули для тестирования 
-  8. data/operations.json
+  7. src/transactions_reader.py
+  8. tests/test_....py - модули для тестирования 
+  9. data/operations.json
 ## Установка
   1. Скопируйте репозиторий
      ```

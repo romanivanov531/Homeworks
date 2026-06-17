@@ -23,9 +23,6 @@ def mask_account_card(number: str) -> str:
     elif len(clean_number[first_index:]) == 20:
         mask_number += clean_number[:first_index] + ' ' + masks.get_mask_account(clean_number[first_index:])
 
-    else:
-        raise ValueError('Некорректный номер')
-
     return mask_number
 
 

@@ -11,7 +11,7 @@ def operation_amount(operation: dict) -> float | Exception:
     '''Функция для поиска суммы транзакций.
     Если валюта отличается от РУБ, проводит конвертацию с помощью внешнего API.
     Возвращает сумму транзакции.'''
-    currency = operation['operationAmount']['currency']['code']
+    currency = operation.get('operationAmount')['currency']['code']
     amount = operation['operationAmount']['amount']
     url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}&amount={amount}"
     headers = {

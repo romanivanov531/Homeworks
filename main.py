@@ -1,8 +1,7 @@
-from src.processing import search_by_keyword
-from src.processing import filter_by_state, sort_by_date
+from src.processing import filter_by_state, search_by_keyword, sort_by_date
 from src.transactions_reader import transactions_read_csv, transactions_read_excel
 from src.utils import take_operations_info
-from src.widget import mask_account_card, get_date
+from src.widget import get_date, mask_account_card
 
 
 def main():
@@ -86,7 +85,7 @@ def main():
         transaction_filtered_by_key_word = transaction_filter_by_value_code
 
     print("Распечатываю итоговый список транзакций...")
-
+    print(f'Всего банковских операций в выборке: {len(transaction_filtered_by_key_word)}')
     for operation in transaction_filtered_by_key_word:
         print(
             f"{get_date(operation.get('date'))} {operation.get('description')}\n"

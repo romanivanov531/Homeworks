@@ -28,11 +28,11 @@ def sort_by_date(list_: list[dict], route: bool = True) -> list[dict]:
 
 def search_by_keyword(info: list, search: str) -> list:
   '''Функция для фильтрации списка транзакций по ключевому слову в описании'''
-    normal_search = search.lower()
-    return [operation for operation in info if re.search(normal_search, operation.get('description').lower())]
+  normal_search = search.lower()
+  return [operation for operation in info if re.search(normal_search, operation.get('description').lower())]
 
 
 def count_transactions_by_category(transactions: list, categories: list) -> dict:
    '''Функция для фильтрации списка транзакций по ключевым словам в описании'''
-    counted = Counter(i.get('description') for i in transactions)
-    return counted
+   counted = Counter(i.get('description') for i in transactions)
+   return counted

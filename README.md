@@ -11,6 +11,7 @@
   7. src/transactions_reader.py
   8. tests/test_....py - модули для тестирования 
   9. data/operations.json
+  10. main.py - исполнительный модуль 
 ## Установка
   1. Скопируйте репозиторий
      ```
@@ -60,4 +61,8 @@
      pytest --cov=src --cov-report=html
      ```
      * Отчет покрытия тестами в директории tests_log/index.html
+
+## Использование программы
+  1. Запустите main.py
+  2. Следуйте инструкциям на экране
      
